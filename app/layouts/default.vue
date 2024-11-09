@@ -3,7 +3,12 @@
     <LoadingComponent
       v-if="isLoading"
     />
-    <NuxtPage />
+    <NuxtPage class=" md:hidden" />
+    <div class="hidden md:flex h-full w-full">
+      <p class="m-auto font-bold text-4xl">
+        Visible que sur mobile
+      </p>
+    </div>
   </div>
 </template>
 

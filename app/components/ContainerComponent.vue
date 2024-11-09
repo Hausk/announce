@@ -39,7 +39,7 @@ if (props.who == 'soeurs') {
     font-family: "Sour Gummy", sans-serif;
   }
   .bg {
-    background-image: url('public/images/stars.jpg');
+    background-image: url('public/images/bg.jpeg');
     background-size: cover;
     background-position: center;
   }
