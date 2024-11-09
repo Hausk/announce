@@ -230,7 +230,7 @@ const drawLoop = () => {
 
 <style lang="css" scoped>
 .baby {
-  background-image: url('images/baby.png');
+  background-image: url('public/images/baby.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
