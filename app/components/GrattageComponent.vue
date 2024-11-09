@@ -50,7 +50,7 @@ const mousePos = ref({ x: 0, y: 0 })
 const lastPos = ref({ x: 0, y: 0 })
 const canvasSize = ref(1000) // Taille de base du canvas pour une bonne résolution
 const glitterImage = ref(null)
-const loading = ref(false)
+const loading = ref(true)
 // Configuration du canvas
 const STROKE_WIDTH = 40
 
@@ -59,9 +59,6 @@ const props = defineProps({
     type: String
   }
 })
-setTimeout(() => {
-  loading.value = false
-}, 300)
 // Chargement et initialisation de l'image de paillettes
 const loadGlitterImage = () => {
   return new Promise((resolve) => {
@@ -140,6 +137,10 @@ onMounted(() => {
 
   // Gérer le redimensionnement
   window.addEventListener('resize', resetCanvas)
+
+  setTimeout(() => {
+    loading.value = false
+  }, 1000)
 })
 
 onUnmounted(() => {
