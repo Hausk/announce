@@ -7,7 +7,7 @@
         ref="scratchCanvas"
         :width="canvasSize"
         :height="canvasSize"
-        class="absolute top-0 -translate-x-1/2 -translate-y-1/2 left-0 z-20 rounded-full left-0"
+        class="absolute top-0 -translate-x-1/2 -translate-y-1/2 left-0 z-30 rounded-full left-0"
         @mousedown="startDrawing"
         @mouseup="stopDrawing"
         @mousemove="draw"
@@ -16,7 +16,10 @@
         @touchmove="handleTouchMove"
       />
 
-      <!-- Contenu à révéler -->
+      <div
+        v-if="loading"
+        class="absolute z-20 w-full h-full bg-black"
+      />
       <div
         class="absolute top-0 left-0 w-full h-full flex items-center justify-center baby"
       >
@@ -47,7 +50,7 @@ const mousePos = ref({ x: 0, y: 0 })
 const lastPos = ref({ x: 0, y: 0 })
 const canvasSize = ref(1000) // Taille de base du canvas pour une bonne résolution
 const glitterImage = ref(null)
-
+const loading = ref(false)
 // Configuration du canvas
 const STROKE_WIDTH = 40
 
@@ -56,7 +59,9 @@ const props = defineProps({
     type: String
   }
 })
-
+setTimeout(() => {
+  loading.value = false
+}, 300)
 // Chargement et initialisation de l'image de paillettes
 const loadGlitterImage = () => {
   return new Promise((resolve) => {
